@@ -3,9 +3,9 @@
 function check_capacity( $capacity, $attendees = 0 ) {
 	// Challenge: define this function
   if($attendees >= $capacity){
-    echo 'This event is sold out';
+    return 'This event is sold out.';
   } else{
-    echo 'There are still tickets available';
+    return 'There are still tickets available.';
   }
 }
 
@@ -19,5 +19,5 @@ $venues = array(
 );
 
 foreach ( $venues as $name => $numbers ) {
-	echo $name . ' - ' . check_capacity($numbers[0], $numbers[1]) . '<br/>';
+	echo $name . ' - ' . check_capacity($numbers[0], $numbers[1]) . '<br>';
 }
