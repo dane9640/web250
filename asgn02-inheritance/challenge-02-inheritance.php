@@ -13,6 +13,22 @@ class Instrument {
     public function play() {
         return "Playing the $this->name from $this->origin.";
     }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function getOrigin() {
+        return $this->origin;
+    }
+
+    public function setName($name) {
+        $this->name = $name;
+    }
+    
+    public function setOrigin($origin) {
+        $this->origin = $origin;
+    }
 }
 
 class StringInstrument extends Instrument {
@@ -26,6 +42,10 @@ class StringInstrument extends Instrument {
     public function play() {
         return parent::play() . " It has $this->stringCount strings.";
     }
+    
+    public function getStringCount() {
+        return $this->stringCount;
+    }
 }
 
 class WindInstrument extends Instrument {
@@ -38,6 +58,10 @@ class WindInstrument extends Instrument {
 
     public function play() {
         return parent::play() . " It has $this->keyCount keys.";
+    }
+
+    public function getKeyCount() {
+        return $this->keyCount;
     }
 }
 
