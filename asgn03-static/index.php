@@ -20,7 +20,19 @@
     $kiwi = new Kiwi;
     $kiwi->flying = "no";
     echo "<p>The " . $fly_catcher->name . " " . $fly_catcher->can_fly() . ".</p>";
-    echo "<p>The " . $kiwi->name . " " . $kiwi->can_fly() . ".</p>";    
+    echo "<p>The " . $kiwi->name . " " . $kiwi->can_fly() . ".</p>"; 
+    
+    echo "<p>Bird Instance Count: ". Bird::$instance_count . "</p>";
+    echo "<p>Flycatcher Instance Count: ". YellowBelliedFlyCatcher::$instance_count . "</p>";
+    echo "<p>Kiwi Instance Count: ". Kiwi::$instance_count . "</p>";
+    
+    $bird2 = Bird::create();
+    $flyCatcher = YellowBelliedFlyCatcher::create();
+    $kiwi2 = Kiwi::create();
+    
+    echo "<p>Bird Instance Count: ". Bird::$instance_count . "</p>";
+    echo "<p>Flycatcher Instance Count: ". YellowBelliedFlyCatcher::$instance_count . "</p>";
+    echo "<p>Kiwi Instance Count: ". Kiwi::$instance_count . "</p>";
 
 ?>
     </body>
