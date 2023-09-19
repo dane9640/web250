@@ -34,13 +34,10 @@ class Bicycle {
   public function set_weight_lbs($value) {
     $this->weight_kg = floatval($value) / 2.2046226218;
   }
-
 }
 
 class Unicycle extends Bicycle {
-  // visibility must match property being overridden
   protected $wheels = 1;
-
 }
 
 $trek = new Bicycle;
