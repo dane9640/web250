@@ -47,6 +47,6 @@ echo "<tr><td>Conservation Level:</td><td>".$bird2->conservationLevel."</td></tr
 echo "<tr><td>Song:</td><td>".$bird2->song("whatwhat!!")."</td></tr>";
 echo "<tr><td>Can Fly:</td><td>".$bird2->canFly(true)."</td></tr>";
 
-?>
+echo "<a href=\"../index.html\">Back to WEB-225</a>";
 
-<a href="../index.html">Back to WEB-225</a>
+?>

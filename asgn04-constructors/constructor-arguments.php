@@ -23,3 +23,5 @@ $flyCatcher->displayInfo();
 $wren->displayInfo();
 
 ?>
+
+<a href="../index.html">Back to WEB-225</a>
