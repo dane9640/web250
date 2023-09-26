@@ -63,3 +63,6 @@ echo $trek->weight_kg() . "<br />";
 echo $trek->weight_lbs() . "<br />";
 echo "<hr />";
 ?>
+
+<a href="../index.html">Back to WEB-225</a>
+

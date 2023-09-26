@@ -83,3 +83,6 @@ echo "Bicycle: " . Bicycle::wheel_details() . "<br />";
 echo "Unicycle: " . Unicycle::wheel_details() . "<br />";
 
 ?>
+
+<a href="../index.html">Back to WEB-225</a>
+

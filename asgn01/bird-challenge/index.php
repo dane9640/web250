@@ -48,3 +48,5 @@ echo "<tr><td>Song:</td><td>".$bird2->song("whatwhat!!")."</td></tr>";
 echo "<tr><td>Can Fly:</td><td>".$bird2->canFly(true)."</td></tr>";
 
 ?>
+
+<a href="../index.html">Back to WEB-225</a>

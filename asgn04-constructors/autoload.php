@@ -13,3 +13,5 @@ $flyCatcher = new Bird(['commonName' =>'Acadian Flycatcher', 'latinName' => 'Emp
 $flyCatcher->displayInfo();
 
 ?>
+
+<a href="../index.html">Back to WEB-225</a>

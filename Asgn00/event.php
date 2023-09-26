@@ -21,3 +21,7 @@ $venues = array(
 foreach ( $venues as $name => $numbers ) {
 	echo $name . ' - ' . check_capacity($numbers[0], $numbers[1]) . '<br>';
 }
+
+?>
+
+<a href="../index.html">Back to WEB-225</a>

@@ -22,4 +22,5 @@ function flip() {
 
 <div class="coin">
 	<?php echo flip(); ?>
+  <a href="../index.html">Back to WEB-225</a>
 </div>

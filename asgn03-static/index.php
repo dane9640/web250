@@ -35,6 +35,8 @@
     echo "<p>Kiwi Instance Count: ". Kiwi::$instance_count . "</p>";
 
 ?>
+    <a href="../index.html">Back to WEB-225</a>
+
     </body>
 </html>
 

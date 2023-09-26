@@ -72,3 +72,7 @@ echo $guitar->play() . "<br>";
 
 $flute = new WindInstrument("Flute", "Various countries", 16);
 echo $flute->play() . "<br>";
+
+?>
+
+<a href="../index.html">Back to WEB-225</a>
