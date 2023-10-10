@@ -1,74 +1,86 @@
 <?php
 
-class ParseCSV {
+  class ParseCSV {
+      
+      // Delimiter for CSV files
+      public static $delimiter = '|';
+    
+      // Filename of CSV file
+      private $filename;
 
-  /* 
-   Add a public static property named $delimiter.
-   Hint: check the delimiter in the wnc-birds.csv file.
-  */
+      // Header of CSV file
+      private $header;
+
+      // Data of CSV file that is parsed
+      private $data = [];
+
+      // Parse header of CSV file
+      private $parse_header = true;
+
+      // Row count of CSV file
+      private $rowCount = 0;
+
+      // Constructor
+      public function __construct($filename) {
+        if($this->fileExists($filename)){
+          $this->filename = $filename;
+        }
+      }
   
+      //Parses the CSV file and returns data
+      //in a multi-dimensional array that can be looped through
+      public function parse() {
+        if(!isset($this->filename)) { 
+          echo "File not set.";
+          return false;
+         }
 
-  private $filename;
-  private $header;
-  private $data=[];
-  private $row_count = 0;
+        $this->reset();
+        $file = fopen($this->filename, 'r');
+        while(!feof($file)) {
+          $row = fgetcsv($file, 0, self::$delimiter);
+          if($row == [null] || $row === false) { continue; }
+          if($this->parse_header) {
+            $this->header = $row;
+            $this->parse_header = false;
+          } else {
+            $this->data[] = array_combine($this->header, $row);
+            $this->rowCount++;
+          }
+        }
+        fclose($file);
+        return $this->data;
+      }  
 
-  public function __construct($filename='') {
-    if($filename != '') {
-      $this->file($filename);
-    }
+      //Checks if file exists and is readable
+      public function fileExists($filename){
+        if (!file_exists($filename)) {
+          echo "File not found: " . $filename;
+          return false;
+        } else if (!is_readable($filename)) {
+          echo "File is not readable: " . $filename;
+          return false;
+        } else {
+          return true;
+        }
+      }
+
+      //returns the data that was last parsed.
+      public function lastResults(){
+        return $this->data;
+      }
+
+      //returns the amount of rows that were parsed.
+      public function rowCount() {
+        return $this->rowCount;
+      }
+
+      //resets the data allowing the parser to be used again.
+      private function reset(){
+        $this->header = null;
+        $this->data = [];
+        $this->rowCount = 0;
+      }
   }
-
-  public function file($filename) {
-    if(!file_exists($filename)) {
-      echo "File does not exist.";
-      return false;
-    } elseif(!is_readable($filename)) {
-      echo "File is not readable.";
-      return false;
-    }
-    $this->filename = $filename;
-    return true;
-  }
-
-  public function parse() {
-    if(!isset($this->filename)) {
-      echo "File not set.";
-      return false;
-    }
-
-    // clear any previous results
-    $this->reset();
-
-    $file = fopen($this->filename, 'r');
-    while(!feof($file)) {
-      $row = fgetcsv($file, 0, self::$delimiter);
-      if($row == [NULL] || $row === FALSE) { continue; }
-      if(!$this->header) {
-     	  $this->header = $row;
-      } else {
-        $this->data[] = array_combine($this->header, $row);
-        $this->row_count++;
-     	}
-    }
-    fclose($file);
-    return $this->data;
-  }
-
-  public function last_results() {
-    return $this->data;
-  }
-
-  public function row_count() {
-    return $this->row_count;
-  }
-
-  private function reset() {
-    $this->header = NULL;
-    $this->data = [];
-    $this->row_count = 0;
-  }
-
-}
 
 ?>
