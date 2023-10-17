@@ -21,18 +21,15 @@
         <th>Category</th>
         <th>Gender</th>
         <th>Color</th>
-        <th>Weight</th>
-        <th>Condition</th>
         <th>Price</th>
+        <th>Details</th>
       </tr>
 
       <?php
 
-        $parser = new ParseCSV(PRIVATE_PATH.'/used_bicycles.csv');
-        $bikeArray = $parser->parse();
+        $bikes = Bicycle::findAll();
 
-        foreach($bikeArray as $args) { 
-          $bike = new Bicycle($args);
+        foreach($bikes as $bike) { 
       ?>
 
       <tr>
@@ -42,14 +39,14 @@
         <td><?php echo h($bike->category) ?></td>
         <td><?php echo h($bike->gender) ?></td>
         <td><?php echo h($bike->color) ?></td>
-        <td><?php echo h($bike->weight_kg()). ' / ' . h($bike->weight_lbs()) ?></td>
-        <td><?php echo h($bike->condition()) ?></td>
         <td><?php echo h('$' . number_format($bike->price, 2)) ?></td>
+        <td><a href="detail.php?id=<?php echo $bike->id ?>">View</a></td>
       </tr>
       
       <?php } ?>
 
     </table>
+
   </div>
 
 </div>

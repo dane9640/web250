@@ -43,4 +43,6 @@ function is_get_request() {
   return $_SERVER['REQUEST_METHOD'] == 'GET';
 }
 
-?>
+function moneyFormat($amount) {
+  return '$' . number_format($amount, 2, '.', ',');
+}

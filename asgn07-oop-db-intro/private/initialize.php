@@ -25,6 +25,8 @@
   require_once('functions.php');
   require_once('classes/Bicycle.class.php');
   require_once('classes/ParseCSV.class.php');
+  require_once('db-credentials.php');
+  require_once('database-functions.php');
   
   // Load class definitions manually
   foreach(glob('classes/*.class.php') as $file) {
@@ -37,5 +39,8 @@
       include('classes/' . $class . '.class.php');
     }
   }
+
+  $database = dbConnect();
+  Bicycle::setDatabase($database);
 
 ?>

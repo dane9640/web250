@@ -2,6 +2,60 @@
 
 class Bicycle {
 
+  static protected $database;
+
+  static public function setDatabase($database) {
+    self::$database = $database;
+  }
+
+  static public function findBySQL($sql) {
+    $result = self::$database->query($sql);
+
+    if(!$result) {
+      exit("Database query failed.");
+    }
+
+    $objectArray = [];
+    while($record = $result->fetch_assoc()){
+      $objectArray[] = self::instantiate($record);
+    }
+
+    $result->free();
+
+    return $objectArray;
+  }
+
+  static public function findAll() {
+    $sql = "SELECT * FROM bicycles";
+    $result = self::findBySQL($sql);
+    return $result;
+  }
+
+  static public function findByID($id) {
+    $sql = "SELECT * FROM bicycles ";
+    $sql .= "WHERE id='" . self::$database->escape_string($id) . "'";
+
+    $objectArray = self::findBySQL($sql);
+    if (!empty($objectArray)) {
+      return array_shift($objectArray);
+    } else {
+      return false;
+    }
+  }
+
+  static protected function instantiate($record) {
+    $object = new self;
+
+    foreach($record as $property => $value) {
+      if(property_exists($object, $property)) {
+        $object->$property = $value;
+      }
+    }
+
+    return $object;
+  }
+
+  public $id;
   public $brand;
   public $model;
   public $year;
@@ -68,6 +122,10 @@ class Bicycle {
     } else {
       return "Unknown";
     }
+  }
+
+  public function name() {
+    return "{$this->brand} {$this->model} {$this->year}";
   }
 
 }
