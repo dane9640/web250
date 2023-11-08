@@ -33,6 +33,8 @@
 
   // -> Individually
   // require_once('classes/bicycle.class.php');
+  require_once('classes/databaseobject.class.php');
+  require_once('classes/Bird.class.php');
 
   // -> All classes in directory
   foreach(glob('classes/*.class.php') as $file) {
