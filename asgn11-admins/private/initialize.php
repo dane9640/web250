@@ -29,6 +29,11 @@
   require_once('database_functions.php');
   require_once('validation_functions.php');
 
+  require_once('classes/databaseobject.class.php');
+  require_once('classes/bicycle.class.php');
+  require_once('classes/admin.class.php');
+  require_once('classes/session.class.php');
+
   // Load class definitions manually
 
   // -> Individually
