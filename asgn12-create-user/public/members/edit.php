@@ -20,10 +20,9 @@ if(is_post_request()) {
   $member->merge_attributes($args);
   $result = $member->save();
 
-  $result = false;
   if($result === true) {
     $_SESSION['message'] = 'The member was updated successfully.';
-    redirect_to(url_for('members/detail.php?id=' . $id));
+    redirect_to(url_for('members/detail.php?id=' . $member->id . ''));
   } else {
     // show errors
   }
