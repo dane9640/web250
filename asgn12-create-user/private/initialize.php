@@ -34,7 +34,9 @@
   // -> Individually
   // require_once('classes/bicycle.class.php');
   require_once('classes/databaseobject.class.php');
-  require_once('classes/Bird.class.php');
+  require_once('classes/bird.class.php');
+  require_once('classes/member.class.php');
+  require_once('classes/session.class.php');
 
   // -> All classes in directory
   foreach(glob('classes/*.class.php') as $file) {
@@ -51,5 +53,7 @@
 
   $database = db_connect();
   DatabaseObject::set_database($database);
+
+  $session = new Session;
 
 ?>
