@@ -49,4 +49,6 @@ if(is_post_request()) {
     <input type="submit" name="submit" value="Submit"  />
   </form>
 
+  <p>Don't have an account? Create one <a href="<?php echo url_for('/members/new.php')?>" >Here</a></p>
+
 </div>
