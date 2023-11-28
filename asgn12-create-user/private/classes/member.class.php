@@ -18,6 +18,7 @@ class Member extends DatabaseObject {
   protected $password_required = true;
 
   public function __construct($args=[]) {
+    $this->id = $args['id'] ?? NULL;
     $this->first_name = $args['first_name'] ?? '';
     $this->last_name = $args['last_name'] ?? '';
     $this->email = $args['email'] ?? '';
