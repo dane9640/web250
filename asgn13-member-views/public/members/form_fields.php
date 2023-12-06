@@ -25,16 +25,6 @@
   <dd><input type="text" name="member[username]" value="<?php echo h($member->username); ?>" /></dd>
 </dl>
 
-
-<?php
-  echo "<p>".$member->user_level."</p>";
- if($member->user_level === "a") { 
-  echo "<dl>";
-  echo "<dt>Admin</dt>";
-  echo "<dd><input type='checkbox' name='member[user_level]' value='a' checked/></dd>";
-  echo "</dl>";
-} ?>
-
 <dl>
   <dt>Password</dt>
   <dd><input type="text" name="member[password]"/></dd>

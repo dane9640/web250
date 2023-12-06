@@ -7,7 +7,9 @@
 <h2>Bird inventory</h2>
 <p>This is a short list -- start your birding!</p>
 
-<a href="new.php">Add a bird</a>
+<?php if($session->is_logged_in()) { ?>
+  <a href="new.php">Add a bird</a>
+<?php } ?>
 
     <table border="1">
       <tr>
